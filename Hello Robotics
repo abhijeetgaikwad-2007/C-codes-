@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("Hello Robotics\n");
+    printf("My name is Abhijit\n");
+
+    return 0;
+}
