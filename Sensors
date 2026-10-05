@@ -1,0 +1,41 @@
+#include <stdio.h
+
+void main()
+
+{ int battery;
+
+clrscr();
+
+printf("Enter battery percentage: ");
+
+scanf("%d", &battery);
+
+if (battery <= 20)
+
+{
+
+printf("Battery is Low");
+
+}
+
+else if (battery >= 60 && battery <= 100)
+
+{
+
+printf("Battery is Medium");
+
+}
+
+else
+
+{
+
+printf("Battery is Normal");
+
+}
+
+getch();
+
+}
+
+}
