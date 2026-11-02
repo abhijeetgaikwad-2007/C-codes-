@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <math.h>
+
+#define PI 3.14159
+
+int main()
+{
+    int gd = DETECT, gm;
+    int x, y, i;
+    int center = 320;
+
+    initgraph(&gd, &gm, "C:\\TC\\BGI");
+
+    setbkcolor(BLACK);
+    cleardevice();
+
+    /* Title */
+    setcolor(YELLOW);
+    settextstyle(3, 0, 3);
+    outtextxy(190, 10, "LINE FOLLOWER ROBOT");
+
+    /* Start and End */
+    setcolor(GREEN);
+    settextstyle(3, 0, 2);
+    outtextxy(45, 55, "START");
+    outtextxy(555, 55, "END");
+
+    /* Green Dotted Boundaries */
+    for(i = 80; i < 390; i += 12)
+    {
+        line(32, i, 32, i + 5);
+        line(605, i, 605, i + 5);
+    }
+
+    /* Robot Box */
+    setcolor(CYAN);
+    rectangle(260, 140, 380, 165);
+
+    settextstyle(3, 0, 2);
+    outtextxy(292, 143, "ROBOT");
+
+    /* Robot Movement */
+    outtextxy(270, 170, "MOVE FORWARD");
+
+    /* Dotted Wave Line */
+    setcolor(WHITE);
+
+    for(x = 50; x < 590; x += 6)
+    {
+        y = 250 + 50 * sin((x - 50) * 0.045);
+
+        bar(x, y, x + 3, y + 3);
+    }
+
+    /* Robot Track Indicator */
+    for(i = 190; i < 270; i += 20)
+    {
+        setcolor(WHITE);
+        outtextxy(center - 5, i, "#");
+    }
+
+    /* Bottom Message */
+    setcolor(YELLOW);
+    settextstyle(3, 0, 2);
+    outtextxy(30, 400, "Sensor Data OK...");
+
+    getch();
+
+    closegraph();
+
+    return 0;
+}
